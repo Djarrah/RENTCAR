@@ -1,0 +1,82 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="MasterPage" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link href="css/stile.css" rel="stylesheet" />
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div id="container">
+            <div id="header">
+                <h1>AUTO BROVIA SRL</h1>
+                <img id="logo" src ="img/logo.jpg" />
+            </div>
+            
+            <div id="menu">
+                <h4>Spese</h4>
+                <ul>
+                    <li><a href="InserisciSpese.aspx">Inserisci</a></li>
+                    <li><a href="ModificaSpese.aspx">Modifica</a></li>
+                    <li><a href="EliminaSpese.aspx">Elimina</a></li>
+                </ul>
+                <h4>Tipi Spese</h4>
+                <ul>
+                    <li><a href="InserisciTipiSpese.aspx">Inserisci</a></li>
+                    <li><a href="ModificaTipiSpese.aspx">Modifica</a></li>
+                </ul>
+                <h4>Marche</h4>
+                <ul>
+                    <li><a href="InserisciMarche.aspx">Inserisci</a></li>
+                    <li><a href="ModificaMarche.aspx">Modifica</a></li>
+                </ul>
+                <h4>Modelli</h4>
+                <ul>
+                    <li><a href="InserisciModelli.aspx">Inserisci</a></li>
+                    <li><a href="ModificaModelli.aspx">Modifica</a></li>
+                </ul>
+                <h4>Parco Auto</h4>
+                <ul>
+                    <li><a href="InserisciSpese.aspx">Inserisci Spese</a></li>
+                    <li><a href="ModificaSpese.aspx">Modifica Spese</a></li>
+                </ul>
+                <h4>Clienti</h4>
+                <ul>
+                    <li><a href="InserisciClienti.aspx">Inserisci</a></li>
+                    <li><a href="ModificaClienti.aspx">Modifica</a></li>
+                </ul>
+                <h4>Contratti</h4>
+                <ul>
+                    <li><a href="InserisciSpese.aspx">Inserisci Spese</a></li>
+                    <li><a href="ModificaSpese.aspx">Modifica Spese</a></li>
+                    <li><a href="EliminaSpese.aspx">Elimina Spese</a></li>
+                </ul>
+                <h4>Contabilità</h4>
+                <ul>
+                    <li><a href="InserisciSpese.aspx">Riepilogo Costi</a></li>
+                    <li><a href="ModificaSpese.aspx">Ripeilogo Fatturatoe</a></li>
+                    <li><a href="EliminaSpese.aspx">Bilancio</a></li>
+                </ul>
+
+            </div>
+
+            <div id="main">
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                </asp:ContentPlaceHolder>
+            </div>
+
+            <div id="footer">
+                Auto Brovia srl <br />
+                Via le mani dagli Occhi 46 <br />
+                24100 Bergamo (BG) <br />
+                CF/P.IVA 0365984545
+            </div>
+        </div>
+    </form>
+</body>
+</html>
