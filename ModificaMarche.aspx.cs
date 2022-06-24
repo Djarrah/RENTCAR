@@ -35,7 +35,7 @@ public partial class Default2 : System.Web.UI.Page
 
         // Dichiaro le variabili 
         string nuovaMarca = txtMarche.Text.Trim();
-        int codiceMarca = int.Parse(griglia.SelectedRow.Cells[0].Text);
+        int codiceMarca = (int)griglia.SelectedDataKey[0];
 
         // Preparo l'oggetto per le operazioni su db
         Marche m = new Marche(codiceMarca, nuovaMarca);
