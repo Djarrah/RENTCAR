@@ -18,7 +18,7 @@ public partial class Default2 : System.Web.UI.Page
     {
         if(string.IsNullOrEmpty(txtTipoSpesa.Text))
         {
-            lblErrore.Text = "ERRORE , Dati non validi";
+            ScriptManager.RegisterClientScriptBlock(this, GetType(), "ATTENZIONE", "alert('Dati non validi')", true);
             return;
         }
         
@@ -34,7 +34,6 @@ public partial class Default2 : System.Web.UI.Page
 
         CaricaGriglia();
 
-        lblErrore.Text = "Tipo Spesa inserito";
         txtTipoSpesa.Text = "";
     }
 
