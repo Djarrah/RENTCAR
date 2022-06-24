@@ -25,6 +25,9 @@ public partial class Default2 : System.Web.UI.Page
         txtPIVA.Text = riga[2].Text.Replace("&nbsp;", ""); // Rimpiazzo gli spazi vuoti del db con stringhe vuote
         txtCF.Text = riga[3].Text.Replace("&nbsp;", "");
         txtIndirizzo.Text = riga[4].Text;
+        txtCitta.Text = riga[5].Text;
+        txtProvincia.Text = riga[6].Text;
+        txtCap.Text = riga[7].Text;
     }
 
     protected void btnModifica_Click(object sender, EventArgs e)
@@ -42,9 +45,18 @@ public partial class Default2 : System.Web.UI.Page
         string PIVA = txtPIVA.Text.Trim();
         string CF = txtCF.Text.Trim();
         string indirizzo = txtIndirizzo.Text.Trim();
+        string citta = txtCitta.Text.Trim();
+        string provincia = txtProvincia.Text.Trim().ToUpper();
+        string cap = txtCap.Text.Trim();
 
         // Controlli formali sui campi obbligatori
-        if (string.IsNullOrEmpty(ragSociale) || string.IsNullOrEmpty(indirizzo))
+        if (
+            string.IsNullOrEmpty(ragSociale) ||
+            string.IsNullOrEmpty(indirizzo) ||
+            string.IsNullOrEmpty(citta) ||
+            string.IsNullOrEmpty(provincia) ||
+            string.IsNullOrEmpty(cap)
+            )
         {
             ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "ERRORE", "alert('Dati non validi')", true);
             return;
@@ -58,7 +70,7 @@ public partial class Default2 : System.Web.UI.Page
         }
 
         // Configurazione elementi connessione
-        Clienti c = new Clienti(codiceCliente, ragSociale, PIVA, CF, indirizzo);
+        Clienti c = new Clienti(codiceCliente, ragSociale, PIVA, CF, indirizzo, citta, provincia, cap);
 
         // Controllo ridondanza
         if (c.CheckOne())
@@ -79,6 +91,9 @@ public partial class Default2 : System.Web.UI.Page
         txtPIVA.Text = "";
         txtCF.Text = "";
         txtIndirizzo.Text = "";
+        txtCitta.Text = "";
+        txtProvincia.Text = "";
+        txtCap.Text = "";
 
         ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "Successo", "alert('Cliente modificato')", true);
     }

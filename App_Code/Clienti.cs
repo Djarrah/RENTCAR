@@ -15,26 +15,35 @@ public class Clienti
     public string pIVA;
     public string CF;
     public string indirizzo;
+    public string citta;
+    public string provincia;
+    public string cap;
 
     #region COSTRUTTORI
 
     public Clienti() { }
 
-    public Clienti(string ragSoc, string pIVA, string CF, string indirizzo)
+    public Clienti(string ragSoc, string pIVA, string CF, string indirizzo, string citta, string provincia, string cap)
     {
         this.ragSoc = ragSoc;
         this.pIVA = pIVA;
         this.CF = CF;
         this.indirizzo = indirizzo;
+        this.citta = citta;
+        this.provincia = provincia;
+        this.cap = cap;
     }
 
-    public Clienti(int codiceCliente, string ragSoc, string pIVA, string CF, string indirizzo)
+    public Clienti(int codiceCliente, string ragSoc, string pIVA, string CF, string indirizzo, string citta, string provincia, string cap)
     {
         this.codiceCliente = codiceCliente;
         this.ragSoc = ragSoc;
         this.pIVA = pIVA;
         this.CF = CF;
         this.indirizzo = indirizzo;
+        this.citta = citta;
+        this.provincia = provincia;
+        this.cap = cap;
     }
 
     #endregion
@@ -79,6 +88,9 @@ public class Clienti
         cmd.Parameters.AddWithValue("@pIVA", pIVA);
         cmd.Parameters.AddWithValue("@CF", CF);
         cmd.Parameters.AddWithValue("@indirizzo", indirizzo);
+        cmd.Parameters.AddWithValue("@citta", citta);
+        cmd.Parameters.AddWithValue("@provincia", provincia);
+        cmd.Parameters.AddWithValue("@cap", cap);
 
         c.EseguiSPCmd(cmd);
     }
@@ -96,6 +108,9 @@ public class Clienti
         cmd.Parameters.AddWithValue("@pIVA", pIVA);
         cmd.Parameters.AddWithValue("@CF", CF);
         cmd.Parameters.AddWithValue("@indirizzo", indirizzo);
+        cmd.Parameters.AddWithValue("@citta", citta);
+        cmd.Parameters.AddWithValue("@provincia", provincia);
+        cmd.Parameters.AddWithValue("@cap", cap);
 
         c.EseguiSPCmd(cmd);
     }

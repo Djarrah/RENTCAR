@@ -23,6 +23,22 @@
             <td>
                 <asp:TextBox ID="txtIndirizzo" runat="server"></asp:TextBox>
             </td>
+        </tr>
+        <tr>
+            <th>Città</th>
+            <th>Provincia</th>
+            <th>CAP</th>
+        </tr>
+        <tr>
+            <td>
+                <asp:TextBox ID="txtCitta" runat="server"></asp:TextBox>
+            </td>
+            <td>
+                <asp:TextBox ID="txtProvincia" runat="server" MaxLength="2"></asp:TextBox>
+            </td>
+            <td>
+                <asp:TextBox ID="txtCap" runat="server" MaxLength="5"></asp:TextBox>
+            </td>
             <td>
                 <asp:Button ID="btnModifica" runat="server" Text="Modifica" OnClick="btnModifica_Click" />
             </td>
@@ -36,6 +52,9 @@
             <asp:BoundField DataField="pIVA" HeaderText="P.IVA" SortExpression="pIVA" />
             <asp:BoundField DataField="CF" HeaderText="CF" SortExpression="CF" />
             <asp:BoundField DataField="indirizzo" HeaderText="Indirizzo" SortExpression="indirizzo" />
+            <asp:BoundField DataField="citta" HeaderText="Città" SortExpression="citta" />
+            <asp:BoundField DataField="provincia" HeaderText="Provincia" SortExpression="provincia" />
+            <asp:BoundField DataField="cap" HeaderText="CAP" SortExpression="cap" />
             <asp:CommandField ButtonType="Button" ShowSelectButton="True" />
         </Columns>
         <FooterStyle BackColor="White" ForeColor="#000066" />
@@ -48,7 +67,5 @@
         <SortedDescendingCellStyle BackColor="#CAC9C9" />
         <SortedDescendingHeaderStyle BackColor="#00547E" />
     </asp:GridView>
-
-
 </asp:Content>
 
