@@ -3,40 +3,34 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
-    <table>
-        <tr>
-            <td>
-                <asp:DropDownList ID="ddlMarca" runat="server"></asp:DropDownList>
-            </td>
-            <td>
-                <asp:TextBox ID="txtDescrizione" runat="server"></asp:TextBox>
-            </td>
-            <td>
-                <asp:Button ID="btnModifica" runat="server" Text="Modifica" OnClick="btnModifica_Click" />
-            </td>
-        </tr>
-        <tr>
-            <td colspan="3">
-                <asp:GridView ID="griglia" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="3" DataKeyNames="codiceModello,codiceMarca" OnSelectedIndexChanged="griglia_SelectedIndexChanged">
-                    <Columns>
-                        <asp:BoundField DataField="Marca" HeaderText="Marca" SortExpression="Marca" />
-                        <asp:BoundField DataField="Modello" HeaderText="Modello" SortExpression="Modello" />
-                        <asp:CommandField ButtonType="Button" ShowSelectButton="True" />
-                        <asp:BoundField DataField="codiceModello" HeaderText="codiceModello" InsertVisible="False" ReadOnly="True" SortExpression="codiceModello" Visible="False" />
-                        <asp:BoundField DataField="codiceMarca" HeaderText="codiceMarca" SortExpression="codiceMarca" Visible="False" />
-                    </Columns>
-                    <FooterStyle BackColor="White" ForeColor="#000066" />
-                    <HeaderStyle BackColor="#006699" Font-Bold="True" ForeColor="White" />
-                    <PagerStyle BackColor="White" ForeColor="#000066" HorizontalAlign="Left" />
-                    <RowStyle ForeColor="#000066" />
-                    <SelectedRowStyle BackColor="#669999" Font-Bold="True" ForeColor="White" />
-                    <SortedAscendingCellStyle BackColor="#F1F1F1" />
-                    <SortedAscendingHeaderStyle BackColor="#007DBB" />
-                    <SortedDescendingCellStyle BackColor="#CAC9C9" />
-                    <SortedDescendingHeaderStyle BackColor="#00547E" />
-                </asp:GridView>
-            </td>
-        </tr>
-    </table>
+    <div class="bg-dark container-fluid py-3">
+        <table>
+            <tr>
+                <td>
+                    <asp:DropDownList ID="ddlMarca" runat="server" CssClass="form-control border-light" Placeholder="Descrizione"></asp:DropDownList>
+                </td>
+                <td>
+                    <asp:TextBox ID="txtDescrizione" runat="server" CssClass="form-control border-light" Placeholder="Descrizione"></asp:TextBox>
+                </td>
+                <td>
+                    <asp:Button ID="btnModifica" runat="server" Text="Modifica" OnClick="btnModifica_Click" CssClass="btn btn-primary px-4" />
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="bg-primary py-4">
+        <div class="container">
+            <asp:GridView ID="griglia" runat="server" AutoGenerateColumns="False" CssClass="table table-striped table-borderless bg-white" OnSelectedIndexChanged="griglia_SelectedIndexChanged" DataKeyNames="codiceModello, codiceMarca">
+                <Columns>
+                    <asp:BoundField DataField="Marca" HeaderText="Marca" SortExpression="Marca" />
+                    <asp:BoundField DataField="Modello" HeaderText="Modello" SortExpression="Modello" />
+                    <asp:CommandField ButtonType="Button" ShowSelectButton="True" ControlStyle-CssClass="btn-block btn-dark" />
+                </Columns>
+                <HeaderStyle CssClass="bg-dark text-white" />
+                <SelectedRowStyle CssClass="bg-success text-white font-weight-bold" Font-Bold="True"/>
+            </asp:GridView>
+        </div>
+    </div>
 </asp:Content>
 
