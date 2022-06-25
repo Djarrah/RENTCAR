@@ -19,12 +19,11 @@
     <div class="bg-primary py-4">
         <div class="container">
             <asp:GridView ID="griglia" runat="server" AutoGenerateColumns="False" CssClass="table table-striped table-borderless bg-white">
-            <Columns>
-                <asp:BoundField DataField="descrizione" HeaderText="Descrizione" >
+                <Columns>
+                    <asp:BoundField DataField="descrizione" HeaderText="Descrizione"></asp:BoundField>
+                </Columns>
                 <HeaderStyle CssClass="bg-dark text-white" />
-                </asp:BoundField>
-            </Columns>
-        </asp:GridView>
+            </asp:GridView>
         </div>
     </div>
 </asp:Content>
