@@ -11,7 +11,7 @@
                     <asp:TextBox ID="txtTipoSpesa" runat="server" CssClass="form-control border-light" Placeholder="Descrizione"></asp:TextBox>
                 </td>
                 <td>
-                    <asp:Button ID="btnCambia" runat="server" Text="Cambia" OnClick="btnCambia_Click" CssClass="btn btn-primary px-4" />
+                    <asp:Button ID="btnCambia" runat="server" Text="Modifica" OnClick="btnCambia_Click" CssClass="btn btn-primary px-4" />
                 </td>
             </tr>
         </table>
