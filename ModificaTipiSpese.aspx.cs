@@ -33,7 +33,7 @@ public partial class Default2 : System.Web.UI.Page
 
         // Costruisco i parametri per la stringa di query
         string descrizione = txtTipoSpesa.Text.Trim();
-        int chiaveRecord = int.Parse(griglia.SelectedRow.Cells[0].Text.ToString());
+        int chiaveRecord = (int)griglia.SelectedDataKey[0];
         
         // Controlli formali
         if (string.IsNullOrEmpty(descrizione))
