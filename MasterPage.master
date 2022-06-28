@@ -85,7 +85,7 @@
                         <div class="nav-item dropdown">
                             <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Contratti</a>
                             <div class="dropdown-menu rounded-0 m-0">
-                                <a href="" class="dropdown-item">Inserisci</a>
+                                <a href="InserisciContratti" class="dropdown-item">Inserisci</a>
                                 <a href="" class="dropdown-item">Modifica</a>
                                 <a href="" class="dropdown-item">Elimina</a>
                             </div>
@@ -107,8 +107,8 @@
                         <div class="nav-item dropdown">
                             <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Parco Auto</a>
                             <div class="dropdown-menu rounded-0 m-0">
-                                <a href="" class="dropdown-item">Inserisci</a>
-                                <a href="" class="dropdown-item">Modifica</a>
+                                <a href="InserisciAuto.aspx" class="dropdown-item">Inserisci</a>
+                                <a href="ModificaAuto.aspx" class="dropdown-item">Modifica</a>
                             </div>
                         </div>
                         <div class="nav-item dropdown">

@@ -14,14 +14,14 @@ public class Auto
     int codiceModello;
     string targa;
     string dataAcquisto;
-    decimal costo;
-    decimal prezzo;
+    string costo;
+    string prezzo;
 
     #region COSTRUTTORI
 
     public Auto() { }
 
-    public Auto(int codiceModello, string targa, string dataAcquisto, decimal costo, decimal prezzo)
+    public Auto(int codiceModello, string targa, string dataAcquisto, string costo, string prezzo)
     {
         this.codiceModello = codiceModello;
         this.targa = targa;
@@ -30,7 +30,7 @@ public class Auto
         this.prezzo = prezzo;
     }
 
-    public Auto(int codiceAuto, int codiceModello, string targa, string dataAcquisto, decimal costo, decimal prezzo)
+    public Auto(int codiceAuto, int codiceModello, string targa, string dataAcquisto, string costo, string prezzo)
     {
         this.codiceAuto = codiceAuto;
         this.codiceModello = codiceModello;

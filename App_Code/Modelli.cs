@@ -44,6 +44,13 @@ public class Modelli
         return c.EseguiSP("tabModelli_SelectAll");
     }
 
+    public DataTable SelectForDDL()
+    {
+        Connessione c = new Connessione();
+
+        return c.EseguiSP("tabModelli_SelectForDDL");
+    }
+
     /// <summary>
     /// Controlla l'esistenza di un record con la coppia codiceMarca e descrizione fornite
     /// </summary>
