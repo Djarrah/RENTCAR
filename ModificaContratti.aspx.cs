@@ -28,9 +28,25 @@ public partial class Default2 : System.Web.UI.Page
         }
     }
 
-    protected void btnInvia_Click(object sender, EventArgs e)
+    protected void griglia_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        TableCellCollection riga = griglia.SelectedRow.Cells;
+
+        ddlClienti.SelectedValue = griglia.SelectedDataKey[1].ToString();
+        ddlAuto.SelectedValue = griglia.SelectedDataKey[2].ToString();
+        txtDataInizio.Text = riga[7].Text;
+        txtDataTermine.Text = riga[8].Text;
+    }
+
+    protected void btnModifica_Click(object sender, EventArgs e)
     {
         // Controlli Formali
+        if (griglia.SelectedRow == null)
+        {
+            ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "ATTENZIONE", "alert('Selezionare una voce')", true);
+            return;
+        }
+
         if (string.IsNullOrEmpty(txtDataInizio.Text) || string.IsNullOrEmpty(txtDataTermine.Text))
         {
             ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "ATTENZIONE", "alert('Dati non validi')", true);
@@ -47,15 +63,23 @@ public partial class Default2 : System.Web.UI.Page
         }
 
         // Dichiarazione variabili
+        int codiceContratto = (int)griglia.SelectedDataKey[0];
         int codiceCliente = int.Parse(ddlClienti.SelectedValue);
         int codiceAuto = int.Parse(ddlAuto.SelectedValue);
         string dataInizio = txtDataInizio.Text;
         string dataTermine = txtDataTermine.Text;
 
-        Contratti c = new Contratti(codiceCliente, codiceAuto, dataInizio, dataTermine);
+        Contratti c = new Contratti(codiceContratto, codiceCliente, codiceAuto, dataInizio, dataTermine);
 
-        // Inserimento
-        c.Insert();
+        // Verifica esistenza
+        if (!c.CheckOne())
+        {
+            ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "ATTENZIONE", "alert('Voce non più esistente')", true);
+            return;
+        }
+
+        // Modifica
+        c.Update();
 
         // Pulizia
         ddlAuto.SelectedIndex = 0;
@@ -64,6 +88,7 @@ public partial class Default2 : System.Web.UI.Page
         txtDataTermine.Text = "";
 
         CaricaGriglia();
+        griglia.SelectedIndex = 0;
     }
 
     protected void CaricaGriglia()

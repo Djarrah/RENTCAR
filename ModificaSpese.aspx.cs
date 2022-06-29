@@ -66,6 +66,13 @@ public partial class Default2 : System.Web.UI.Page
         // Configuro i parametri della connessione
         Spese s = new Spese(codiceSpesa, codiceTipoSpesa, importo, dataSpesa);
 
+        // Verifica esistenza
+        if (!s.CheckOne())
+        {
+            ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "ATTENZIONE", "alert('Voce non più esistente')", true);
+            return;
+        }
+
         // Modifico il record nel DB
         s.Update();
 

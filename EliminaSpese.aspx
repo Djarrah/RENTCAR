@@ -26,7 +26,7 @@
                     <asp:BoundField DataField="dataSpesa" HeaderText="Data" ReadOnly="True" SortExpression="dataSpesa" />
                     <asp:CommandField ButtonType="Button" ShowSelectButton="True" ControlStyle-CssClass="btn-block btn-dark"/>
                 </Columns>
-                <SelectedRowStyle CssClass="bg-success text-white font-weight-bold" Font-Bold="True"/>
+                <SelectedRowStyle CssClass="text-white font-weight-bold bg-danger" Font-Bold="True"/>
                 <HeaderStyle CssClass="bg-dark text-white" />
             </asp:GridView>
         </div>

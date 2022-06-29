@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="InserisciContratti.aspx.cs" Inherits="Default2" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="ModificaContratti.aspx.cs" Inherits="Default2" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 </asp:Content>
@@ -19,7 +19,7 @@
                     <asp:TextBox ID="txtDataTermine" runat="server" TextMode="Date" ToolTip="Data Termine Contratto" CssClass="form-control border-light"></asp:TextBox>
                 </td>
                 <td>
-                    <asp:Button ID="btnInvia" runat="server" Text="Inserisci" CssClass="btn btn-primary px-4" OnClick="btnInvia_Click" />
+                    <asp:Button ID="btnModifica" runat="server" Text="Modifica" CssClass="btn btn-primary px-4" OnClick="btnModifica_Click" />
                 </td>
             </tr>
         </table>
@@ -27,7 +27,7 @@
 
     <div class="bg-primary py-4">
         <div class="container-fluid">
-            <asp:GridView ID="griglia" runat="server" CssClass="table table-striped table-borderless bg-white" AutoGenerateColumns="False" DataKeyNames="codiceContratto,codiceCliente,codiceAuto,codiceModello,codiceMarca">
+            <asp:GridView ID="griglia" runat="server" CssClass="table table-striped table-borderless bg-white" AutoGenerateColumns="False" DataKeyNames="codiceContratto,codiceCliente,codiceAuto" OnSelectedIndexChanged="griglia_SelectedIndexChanged">
                 <Columns>
                     <asp:BoundField DataField="ragSociale" HeaderText="Rag. Soc." SortExpression="ragSociale" />
                     <asp:BoundField DataField="pIVA" HeaderText="P.IVA" SortExpression="pIVA" />
@@ -40,11 +40,12 @@
                     <asp:BoundField DataField="dataTermineContratto" HeaderText="Termine" ReadOnly="True" SortExpression="dataTermineContratto" />
                     <asp:BoundField DataField="totContratto" HeaderText="Fatturato Previsto" />
                     <asp:BoundField DataField="totFatturato" HeaderText="Fatturato Corrente" />
+                    <asp:CommandField ButtonType="Button" ShowSelectButton="True" ControlStyle-CssClass="btn-block btn-dark"/>
                 </Columns>
+                <SelectedRowStyle CssClass="bg-success text-white font-weight-bold" Font-Bold="True"/>
                 <HeaderStyle CssClass="bg-dark text-white" />
             </asp:GridView>
         </div>
     </div>
-
 </asp:Content>
 

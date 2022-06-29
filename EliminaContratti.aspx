@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="InserisciContratti.aspx.cs" Inherits="Default2" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="EliminaContratti.aspx.cs" Inherits="Default3" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 </asp:Content>
@@ -7,19 +7,10 @@
         <table>
             <tr>
                 <td>
-                    <asp:DropDownList ID="ddlClienti" runat="server" CssClass="form-control border-light"></asp:DropDownList>
+                    <asp:TextBox ID="txtID" runat="server" Placeholder="ID" CssClass="form-control border-light"></asp:TextBox>
                 </td>
                 <td>
-                    <asp:DropDownList ID="ddlAuto" runat="server" CssClass="form-control border-light"></asp:DropDownList>
-                </td>
-                <td>
-                    <asp:TextBox ID="txtDataInizio" runat="server" TextMode="Date" ToolTip="Data Inizio Contratto" CssClass="form-control border-light"></asp:TextBox>
-                </td>
-                <td>
-                    <asp:TextBox ID="txtDataTermine" runat="server" TextMode="Date" ToolTip="Data Termine Contratto" CssClass="form-control border-light"></asp:TextBox>
-                </td>
-                <td>
-                    <asp:Button ID="btnInvia" runat="server" Text="Inserisci" CssClass="btn btn-primary px-4" OnClick="btnInvia_Click" />
+                    <asp:Button ID="btnElimina" runat="server" Text="Elimina" CssClass="btn btn-primary px-4" OnClick="btnElimina_Click" />
                 </td>
             </tr>
         </table>
@@ -27,8 +18,9 @@
 
     <div class="bg-primary py-4">
         <div class="container-fluid">
-            <asp:GridView ID="griglia" runat="server" CssClass="table table-striped table-borderless bg-white" AutoGenerateColumns="False" DataKeyNames="codiceContratto,codiceCliente,codiceAuto,codiceModello,codiceMarca">
+            <asp:GridView ID="griglia" runat="server" CssClass="table table-striped table-borderless bg-white" AutoGenerateColumns="False" OnSelectedIndexChanged="griglia_SelectedIndexChanged">
                 <Columns>
+                    <asp:BoundField DataField="codiceContratto" HeaderText="ID"/>
                     <asp:BoundField DataField="ragSociale" HeaderText="Rag. Soc." SortExpression="ragSociale" />
                     <asp:BoundField DataField="pIVA" HeaderText="P.IVA" SortExpression="pIVA" />
                     <asp:BoundField DataField="CF" HeaderText="CF" SortExpression="CF" />
@@ -40,11 +32,12 @@
                     <asp:BoundField DataField="dataTermineContratto" HeaderText="Termine" ReadOnly="True" SortExpression="dataTermineContratto" />
                     <asp:BoundField DataField="totContratto" HeaderText="Fatturato Previsto" />
                     <asp:BoundField DataField="totFatturato" HeaderText="Fatturato Corrente" />
+                    <asp:CommandField ButtonType="Button" ShowSelectButton="True" ControlStyle-CssClass="btn-block btn-dark"/>
                 </Columns>
+                <SelectedRowStyle CssClass="text-white font-weight-bold bg-danger" Font-Bold="True"/>
                 <HeaderStyle CssClass="bg-dark text-white" />
             </asp:GridView>
         </div>
     </div>
-
 </asp:Content>
 

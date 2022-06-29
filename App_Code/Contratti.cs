@@ -20,6 +20,11 @@ public class Contratti
 
     public Contratti() { }
 
+    public Contratti(int codiceContratto)
+    {
+        this.codiceContratto = codiceContratto;
+    }
+
     public Contratti(int codiceCliente, int codiceAuto, string dataInizioContratto, string dataTermineContratto)
     {
         this.codiceCliente = codiceCliente;
@@ -103,6 +108,20 @@ public class Contratti
         cmd.Parameters.AddWithValue("@codiceAuto", codiceAuto);
         cmd.Parameters.AddWithValue("@dataInizioContratto", dataInizioContratto);
         cmd.Parameters.AddWithValue("@dataTermineContratto", dataTermineContratto);
+
+        c.EseguiSPCmd(cmd);
+    }
+
+    /// <summary>
+    /// Elimina il record col codiceContratto fornito
+    /// </summary>
+    public void Delete()
+    {
+        Connessione c = new Connessione();
+        SqlCommand cmd = new SqlCommand();
+
+        cmd.CommandText = "tabContratti_Delete";
+        cmd.Parameters.AddWithValue("@codiceContratto", codiceContratto);
 
         c.EseguiSPCmd(cmd);
     }
