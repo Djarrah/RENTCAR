@@ -8,6 +8,15 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
+    <link href="css/stile.css" rel="stylesheet" />
+
+    <%-- jQuery Flavio --%>
+    <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/base/jquery-ui.css" type="text/css" media="all" />
+    <link rel="stylesheet" href="http://static.jquery.com/ui/css/demo-docs-theme/ui.theme.css" type="text/css" media="all" />
+    <%--<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>--%>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -54,7 +63,9 @@
                         <a class="text-white pl-2" href="">
                             <i class="fab fa-youtube"></i>
                         </a>
+                        <a href="login.aspx" class="btn btn-dark d-lg-block">Esci</a>
                     </div>
+
                 </div>
             </div>
         </div>
@@ -119,13 +130,14 @@
                                 <a href="EliminaSpese.aspx" class="dropdown-item">Elimina</a>
                             </div>
                         </div>
-                        <div class="nav-item dropdown">
+                        <a href="TipiSpese.aspx" class="nav-item nav-link">T. Spese</a>
+                        <%--<div class="nav-item dropdown">
                             <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Tipi Spese</a>
                             <div class="dropdown-menu rounded-0 m-0">
                                 <a href="InserisciTipiSpese.aspx" class="dropdown-item">Inserisci</a>
                                 <a href="ModificaTipiSpese.aspx" class="dropdown-item">Modifica</a>
                             </div>
-                        </div>
+                        </div>--%>
                         <div class="nav-item dropdown">
                             <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Contabilità</a>
                             <div class="dropdown-menu rounded-0 m-0">
@@ -136,19 +148,16 @@
                         </div>
                         <!--<a href="contact.html" class="nav-item nav-link">Contabilità</a>-->
                     </div>
-                    <!-- Bottone Grosso
-                <a href="" class="btn btn-primary py-2 px-4 d-none d-lg-block">Esci dalla Sessione</a> -->
                 </div>
             </nav>
         </div>
         <!-- Navbar End -->
 
+        <%-- PlaceHolders --%>
 
         <div>
-            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
-            </asp:ContentPlaceHolder>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server"></asp:ContentPlaceHolder>
         </div>
-
 
         <!-- Footer Start -->
         <div class="container-fluid bg-dark text-white mt-5 py-5 px-sm-3 px-md-5">
@@ -157,7 +166,11 @@
                     <div class="row">
                         <div class="col-md-6 mb-5">
                             <h3 class="text-primary mb-4">Contattaci</h3>
-                            <p><i class="fa fa-map-marker-alt mr-2"></i>Via le Mani dagli Occhi 46 <br /> 24100 Bergamo (BG)</p>
+                            <p>
+                                <i class="fa fa-map-marker-alt mr-2"></i>Via le Mani dagli Occhi 46
+                                <br />
+                                24100 Bergamo (BG)
+                            </p>
                             <p><i class="fa fa-phone-alt mr-2"></i>+420 666 4242</p>
                             <p><i class="fa fa-envelope mr-2"></i>info@broviacars.com</p>
                             <p><i class="fa fa-envelope mr-2"></i>CF/P.IVA 0365984545</p>
@@ -226,7 +239,9 @@
 
 
         <!-- JavaScript Libraries -->
-        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+
+
+        <%--<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>--%>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
         <script src="lib/easing/easing.min.js"></script>
         <script src="lib/waypoints/waypoints.min.js"></script>

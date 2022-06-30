@@ -16,6 +16,11 @@ public class TipiSpese
     #region COSTRUTTORI
     public TipiSpese() { }
 
+    public TipiSpese(int codiceTipoSpesa)
+    {
+        this.codiceTipoSpesa = codiceTipoSpesa;
+    }
+
     public TipiSpese(string descrizione)
     { 
         this.descrizione = descrizione;
@@ -39,6 +44,20 @@ public class TipiSpese
 
         //return c.EseguiSelect("select * from tabTipiSpese order by descrizione");
         return c.EseguiSP("tabTipiSpese_SelectAll");
+    }
+
+    /// <summary>
+    /// Seleziona il record con il codiceTipoSpesa specificato
+    /// </summary>
+    /// <returns>Una tabella contenente i dati del record</returns>
+    public DataTable SelectOne()
+    {
+        SqlCommand cmd = new SqlCommand();
+        cmd.CommandText = "tabTipiSpese_SelectOne";
+        cmd.Parameters.AddWithValue("@codiceTipoSpesa", codiceTipoSpesa);
+
+        Connessione c = new Connessione();
+        return c.EseguiSPSelect(cmd);
     }
 
     /// <summary>

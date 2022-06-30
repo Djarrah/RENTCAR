@@ -1,17 +1,33 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="ModificaTipiSpese.aspx.cs" Inherits="Default2" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="TipiSpese.aspx.cs" Inherits="Default2" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
-
     <script type="text/javascript">
-
         $(document).ready(function () {
+            $('#btnInserisci').click(function () {
+                var url = '/forms/inserisci/insTipiSpese.aspx';
+                var dialog = $('<iframe src="' + url + '" frameborder="0"></iframe>').appendTo('body');
 
-            $('#popup').click(function () {
+                dialog.dialog({
+                    modal: true,
+                    title: 'Inserimento dati',
+                    overlay: {
+                        opacity: 0.9,
+                        background: 'black'
+                    },
 
-                var url = 'modifica.aspx';
-                var pippo = $('<iframe src="' + url + '" frameborder="0"></iframe>').appendTo('body');
+                    open: function (type, data) {
+                        $(this).parent().appendTo('form');
+                    }
+                });
 
-                pippo.dialog({
+                return false;
+            });
+
+            $('#btnModifica').click(function () {
+                var url = '/forms/modifica/modTipiSpese.aspx';
+                var dialog = $('<iframe src="' + url + '" frameborder="0"></iframe>').appendTo('body');
+
+                dialog.dialog({
                     modal: true,
                     title: 'Modifica dati',
                     resizable: false,
@@ -23,28 +39,27 @@
 
                     open: function (type, data) {
                         $(this).parent().appendTo('form');
-
                     }
-
                 });
 
                 return false;
-
             });
 
         });
-
-        // Da fare: tieni il bottone inattivo finchè un record non è slezionato?
-
     </script>
 
 </asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
+
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceholder1" runat="Server">
     <div class="bg-dark container-fluid py-3">
         <table>
             <tr>
                 <td>
-                    <input type="button" id="popup" value="Modifica" class="btn btn-primary px-4" />
+                    <input type="button" id="btnInserisci" value="Inserisci" class="btn btn-primary px-4" />
+                </td>
+                <td>
+                    <%--<input type="button" id="btnModifica" value="Modifica" class="btn btn-primary px-4" />--%>
+                    <asp:Button ID="btnModifica" runat="server" Text="Modifica" CssClass="btn btn-primary px-4" ClientIDMode="Static" Enabled="False" />
                 </td>
                 <td>
                     <asp:Button ID="btnCaricaGriglia" runat="server" Text="Ricarica griglia" OnClick="btnCaricaGriglia_Click" CssClass="btn btn-primary px-4" />
@@ -62,9 +77,11 @@
                     <asp:CommandField ShowSelectButton="True" ButtonType="Button" ControlStyle-CssClass="btn-block btn-dark"></asp:CommandField>
                 </Columns>
                 <HeaderStyle CssClass="bg-dark text-white" />
-                <SelectedRowStyle CssClass="bg-success text-white font-weight-bold" Font-Bold="True"/>
+                <SelectedRowStyle CssClass="bg-success text-white font-weight-bold" Font-Bold="True" />
             </asp:GridView>
         </div>
     </div>
+
 </asp:Content>
+
 
