@@ -16,6 +16,11 @@ public class Marche
     #region COSTRUTTORI
     public Marche() {  }
 
+    public Marche(int codiceMarca)
+    {
+        this.codiceMarca = codiceMarca;
+    }
+
     public Marche(string descrizione)
     {
         this.descrizione = descrizione;
@@ -41,10 +46,24 @@ public class Marche
     }
 
     /// <summary>
-    /// Controlla l'esistenza di una marca nel DB
+    /// Seleziona il record con il codiceMarca specificato
     /// </summary>
-    /// <returns>Un booleano positivo in caso di doppioni</returns>
-    public bool CheckOne()
+    /// <returns>Una tabella contenente i dati del record</returns>
+    public DataTable SelectOne()
+    {
+        SqlCommand cmd = new SqlCommand();
+        cmd.CommandText = "tabMarche_SelectOne";
+        cmd.Parameters.AddWithValue("@codiceMarca", codiceMarca);
+
+        Connessione c = new Connessione();
+        return c.EseguiSPSelect(cmd);
+    }
+
+        /// <summary>
+        /// Controlla l'esistenza di una marca nel DB
+        /// </summary>
+        /// <returns>Un booleano positivo in caso di doppioni</returns>
+        public bool CheckOne()
     {
         Connessione c = new Connessione();
 
