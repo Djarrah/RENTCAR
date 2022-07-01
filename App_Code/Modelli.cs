@@ -75,6 +75,21 @@ public class Modelli
     }
 
     /// <summary>
+    /// Seleziona i modelli di una determinata marca
+    /// </summary>
+    /// <param name="codiceMarca">Il codice della marca da selezionare come filtro</param>
+    /// <returns>Una tabella dati contenente i modelli selezionati</returns>
+    public DataTable SelectMarca(int codiceMarca)
+    {
+        SqlCommand cmd = new SqlCommand();
+        cmd.CommandText = "tabModelli_SelectMarca";
+        cmd.Parameters.AddWithValue("codiceMarca", codiceMarca);
+
+        Connessione c = new Connessione();
+        return c.EseguiSPSelect(cmd);
+    }
+
+    /// <summary>
     /// Controlla l'esistenza di un record con la coppia codiceMarca e descrizione fornite
     /// </summary>
     /// <returns>true se esiste, false se non esiste</returns>

@@ -117,13 +117,14 @@
                                 <a href="ModificaModelli.aspx" class="dropdown-item">Modifica</a>
                             </div>
                         </div>--%>
-                        <div class="nav-item dropdown">
+                        <a href="Auto.aspx" class="nav-item nav-link">Parco Auto</a>
+                        <%--<div class="nav-item dropdown">
                             <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Parco Auto</a>
                             <div class="dropdown-menu rounded-0 m-0">
                                 <a href="InserisciAuto.aspx" class="dropdown-item">Inserisci</a>
                                 <a href="ModificaAuto.aspx" class="dropdown-item">Modifica</a>
                             </div>
-                        </div>
+                        </div>--%>
                         <div class="nav-item dropdown">
                             <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Spese</a>
                             <div class="dropdown-menu rounded-0 m-0">

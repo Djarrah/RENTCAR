@@ -36,7 +36,7 @@ public partial class Default2 : System.Web.UI.Page
             return;
         }
 
-        if (!decimal.TryParse(txtCosto.Text, out decimal res) || !decimal.TryParse(txtPrezzo.Text, out decimal res2))
+        if (!decimal.TryParse(txtCosto.Text, out decimal costo) || !decimal.TryParse(txtPrezzo.Text, out decimal prezzo))
         {
             ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "ATTENZIONE", "alert('Dati non validi')", true);
             return;
@@ -46,8 +46,6 @@ public partial class Default2 : System.Web.UI.Page
         int codiceModello = int.Parse(ddlModelli.SelectedValue);
         string targa = txtTarga.Text.Trim().ToUpper();
         string dataAcquisto = txtDataAcquisto.Text;
-        string costo = txtCosto.Text.Trim().Replace(',', '.');
-        string prezzo = txtPrezzo.Text.Trim().Replace(',', '.');
 
         Auto a = new Auto(codiceModello, targa, dataAcquisto, costo, prezzo);
 
