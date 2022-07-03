@@ -23,6 +23,11 @@ public class Clienti
 
     public Clienti() { }
 
+    public Clienti(int codiceCliente)
+    {
+        this.codiceCliente = codiceCliente;
+    }
+
     public Clienti(string ragSoc, string pIVA, string CF, string indirizzo, string citta, string provincia, string cap)
     {
         this.ragSoc = ragSoc;
@@ -57,6 +62,20 @@ public class Clienti
         Connessione c = new Connessione();
 
         return c.EseguiSP("tabClienti_SelectAll");
+    }
+
+    /// <summary>
+    /// Seleziona un record col codice specificato
+    /// </summary>
+    /// <returns>Una tabella dati contenente il record selezionato</returns>
+    public DataTable SelectOne()
+    {
+        SqlCommand cmd = new SqlCommand();
+        cmd.CommandText = "tabClienti_SelectOne";
+        cmd.Parameters.AddWithValue("codiceCliente", codiceCliente);
+
+        Connessione c = new Connessione();
+        return c.EseguiSPSelect(cmd);
     }
 
     /// <summary>

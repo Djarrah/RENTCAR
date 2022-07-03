@@ -13,6 +13,11 @@
             <table>
                 <tr>
                     <td>
+                        <asp:Label ID="lbl" runat="server"></asp:Label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
                         <asp:DropDownList ID="ddlMarche" runat="server" OnSelectedIndexChanged="ddlMarche_SelectedIndexChanged" AutoPostBack="True"></asp:DropDownList>
                     </td>
                 </tr>
@@ -44,11 +49,6 @@
                 <tr>
                     <td>
                         <asp:Button ID="btnInserisci" runat="server" Text="Inserisci" OnClick="btnInserisci_Click" CssClass="btn btn-primary px-4" />
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <asp:Label ID="lbl" runat="server"></asp:Label>
                     </td>
                 </tr>
             </table>

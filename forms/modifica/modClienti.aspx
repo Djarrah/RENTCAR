@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="modAuto.aspx.cs" Inherits="inserimento" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="modClienti.aspx.cs" Inherits="inserimento" %>
 
 <!DOCTYPE html>
 
@@ -14,32 +14,37 @@
             <table id="tabella" runat="server">
                 <tr>
                     <td>
-                        <asp:DropDownList ID="ddlMarche" runat="server" OnSelectedIndexChanged="ddlMarche_SelectedIndexChanged" AutoPostBack="True"></asp:DropDownList>
+                        <asp:TextBox ID="txtRagSoc" runat="server" CssClass="form-control border-light" Placeholder="Ragione Sociale"></asp:TextBox>
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <asp:DropDownList ID="ddlModelli" runat="server"></asp:DropDownList>
+                        <asp:TextBox ID="txtPIVA" runat="server" CssClass="form-control border-light" Placeholder="P.IVA"></asp:TextBox>
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <asp:TextBox ID="txtTarga" runat="server" CssClass="form-control border-light" Placeholder="Targa" MaxLength="7"></asp:TextBox>
+                        <asp:TextBox ID="txtCF" runat="server" CssClass="form-control border-light" Placeholder="CF"></asp:TextBox>
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <asp:TextBox ID="txtDataAcquisto" runat="server" CssClass="form-control border-light" ToolTip="Data Acquisto" TextMode="Date"></asp:TextBox>
+                        <asp:TextBox ID="txtIndirizzo" runat="server" CssClass="form-control border-light" Placeholder="Indirizzo"></asp:TextBox>
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <asp:TextBox ID="txtCosto" runat="server" CssClass="form-control border-light" Placeholder="Costo" MaxLength="9"></asp:TextBox>
+                        <asp:TextBox ID="txtCitta" runat="server" CssClass="form-control border-light" Placeholder="Città"></asp:TextBox>
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <asp:TextBox ID="txtPrezzo" runat="server" CssClass="form-control border-light" Placeholder="Prezzo Mensile" MaxLength="7"></asp:TextBox>
+                        <asp:TextBox ID="txtProvincia" runat="server" CssClass="form-control border-light" Placeholder="Pr." MaxLength="2"></asp:TextBox>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <asp:TextBox ID="txtCAP" runat="server" CssClass="form-control border-light" Placeholder="CAP" MaxLength="5"></asp:TextBox>
                     </td>
                 </tr>
                 <tr>

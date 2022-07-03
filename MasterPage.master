@@ -86,13 +86,14 @@
                     <div class="navbar-nav m-auto py-0">
                         <!-- Elementi navbar -->
                         <!-- Template DDL -->
-                        <div class="nav-item dropdown">
+                        <a href="Clienti.aspx" class="nav-item nav-link">Clienti</a>
+                        <%--<div class="nav-item dropdown">
                             <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Clienti</a>
                             <div class="dropdown-menu rounded-0 m-0">
                                 <a href="InserisciClienti.aspx" class="dropdown-item">Inserisci</a>
                                 <a href="ModificaClienti.aspx" class="dropdown-item">Modifica</a>
                             </div>
-                        </div>
+                        </div>--%>
                         <div class="nav-item dropdown">
                             <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Contratti</a>
                             <div class="dropdown-menu rounded-0 m-0">

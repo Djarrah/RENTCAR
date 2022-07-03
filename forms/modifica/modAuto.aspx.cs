@@ -120,5 +120,6 @@ public partial class inserimento : System.Web.UI.Page
         ddlModelli.DataTextField = "descrizione";
         ddlModelli.DataValueField = "codiceModello";
         ddlModelli.DataBind();
+        lbl.Text = "Modifica Effettuata";
     }
 }
