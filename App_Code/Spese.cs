@@ -10,10 +10,10 @@ using System.Web;
 /// </summary>
 public class Spese
 {
-    public int codiceSpesa;
-    public int codiceTipoSpesa;
-    public string importo;
-    public string dataSpesa;
+    int codiceSpesa;
+    int codiceTipoSpesa;
+    decimal importo;
+    string dataSpesa;
 
     #region COSTRUTTORI
 
@@ -21,14 +21,14 @@ public class Spese
 
     public Spese(int codiceSpesa) { this.codiceSpesa = codiceSpesa; }
 
-    public Spese(int codiceTipoSpesa, string importo, string dataSpesa)
+    public Spese(int codiceTipoSpesa, decimal importo, string dataSpesa)
     {
         this.codiceTipoSpesa = codiceTipoSpesa;
         this.importo = importo;
         this.dataSpesa = dataSpesa;
     }
 
-    public Spese(int codiceSpesa, int codiceTipoSpesa, string importo, string dataSpesa)
+    public Spese(int codiceSpesa, int codiceTipoSpesa, decimal importo, string dataSpesa)
     {
         this.codiceSpesa = codiceSpesa;
         this.codiceTipoSpesa = codiceTipoSpesa;
@@ -47,6 +47,20 @@ public class Spese
         Connessione c = new Connessione();
 
         return c.EseguiSP("tabSpese_SelectAll");
+    }
+
+    /// <summary>
+    /// Seleziona il record con il codiceSpesa specificato
+    /// </summary>
+    /// <returns>Una tabella contenente i dati del record</returns>
+    public DataTable SelectOne()
+    {
+        SqlCommand cmd = new SqlCommand();
+        cmd.CommandText = "tabSpese_SelectOne";
+        cmd.Parameters.AddWithValue("@codiceSpesa", codiceSpesa);
+
+        Connessione c = new Connessione();
+        return c.EseguiSPSelect(cmd);
     }
 
     /// <summary>

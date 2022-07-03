@@ -126,14 +126,15 @@
                                 <a href="ModificaAuto.aspx" class="dropdown-item">Modifica</a>
                             </div>
                         </div>--%>
-                        <div class="nav-item dropdown">
+                        <a href="Spese.aspx" class="nav-item nav-link">Spese</a>
+                        <%--<div class="nav-item dropdown">
                             <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Spese</a>
                             <div class="dropdown-menu rounded-0 m-0">
                                 <a href="InserisciSpese.aspx" class="dropdown-item">Inserisci</a>
                                 <a href="ModificaSpese.aspx" class="dropdown-item">Modifica</a>
                                 <a href="EliminaSpese.aspx" class="dropdown-item">Elimina</a>
                             </div>
-                        </div>
+                        </div>--%>
                         <a href="TipiSpese.aspx" class="nav-item nav-link">T. Spese</a>
                         <%--<div class="nav-item dropdown">
                             <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Tipi Spese</a>

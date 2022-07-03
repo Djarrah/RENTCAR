@@ -63,7 +63,7 @@ public partial class Default2 : System.Web.UI.Page
             return;
         }
 
-        if (decimal.TryParse(txtImporto.Text, out decimal result) == false)
+        if (decimal.TryParse(txtImporto.Text.Replace('.', ','), out decimal importo) == false)
         {
             ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "ATTENZIONE", "alert('Dati non validi')", true);
             return;
@@ -71,7 +71,6 @@ public partial class Default2 : System.Web.UI.Page
 
         // Dichiaro le variabili da inserire nel record
         int codiceTipoSpesa = int.Parse(ddlTipoSpesa.SelectedValue);
-        string importo = txtImporto.Text.Trim().Replace(',', '.');
         string dataSpesa = txtDataSpesa.Text;
 
         // Creo gli elementi della connessione
