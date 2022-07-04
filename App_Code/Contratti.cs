@@ -58,6 +58,20 @@ public class Contratti
     }
 
     /// <summary>
+    /// Seleziona il record con il codiceContratto specificato
+    /// </summary>
+    /// <returns>Una tabella contenente i dati del record</returns>
+    public DataTable SelectOne()
+    {
+        SqlCommand cmd = new SqlCommand();
+        cmd.CommandText = "tabContratti_SelectOne";
+        cmd.Parameters.AddWithValue("@codiceContratto", codiceContratto);
+
+        Connessione c = new Connessione();
+        return c.EseguiSPSelect(cmd);
+    }
+
+    /// <summary>
     /// Controlla che esista un record col codice contratto fornito
     /// </summary>
     /// <returns>true se esiste, false se non esiste</returns>

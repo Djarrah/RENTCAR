@@ -94,14 +94,15 @@
                                 <a href="ModificaClienti.aspx" class="dropdown-item">Modifica</a>
                             </div>
                         </div>--%>
-                        <div class="nav-item dropdown">
+                        <a href="Contratti.aspx" class="nav-item nav-link">Contratti</a>
+                        <%--<div class="nav-item dropdown">
                             <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Contratti</a>
                             <div class="dropdown-menu rounded-0 m-0">
                                 <a href="InserisciContratti.aspx" class="dropdown-item">Inserisci</a>
                                 <a href="ModificaContratti.aspx" class="dropdown-item">Modifica</a>
                                 <a href="EliminaContratti.aspx" class="dropdown-item">Elimina</a>
                             </div>
-                        </div>
+                        </div>--%>
                         <a href="Marche.aspx" class="nav-item nav-link">Marche</a>
                         <%--<div class="nav-item dropdown">
                             <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Marche</a>
