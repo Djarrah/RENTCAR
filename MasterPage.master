@@ -144,15 +144,15 @@
                                 <a href="ModificaTipiSpese.aspx" class="dropdown-item">Modifica</a>
                             </div>
                         </div>--%>
-                        <div class="nav-item dropdown">
+                        <a href="Contabilita.aspx" class="nav-item nav-link">Contabilità</a>
+                        <%--<div class="nav-item dropdown">
                             <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Contabilità</a>
                             <div class="dropdown-menu rounded-0 m-0">
                                 <a href="" class="dropdown-item">Riepilogo Costi</a>
                                 <a href="" class="dropdown-item">Riepilogo Fatturato</a>
                                 <a href="" class="dropdown-item">Bilancio</a>
                             </div>
-                        </div>
-                        <!--<a href="contact.html" class="nav-item nav-link">Contabilità</a>-->
+                        </div>--%>
                     </div>
                 </div>
             </nav>
