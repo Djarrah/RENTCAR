@@ -141,4 +141,66 @@ public class Contratti
     }
 
     #endregion
+
+    /// <summary>
+    /// Gestisce le operazioni di contabilità
+    /// </summary>
+    public class Contabilita
+    {
+        int anno;
+
+        public Contabilita(int anno) { this.anno = anno; }
+
+        /// <summary>
+        /// Determina il totale delle spese per un determinato anno
+        /// </summary>
+        /// <returns>Il totale delle spese come decimale</returns>
+        public decimal SpesePerAnno()
+        {
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = "tabSpese_SumForYear";
+            cmd.Parameters.AddWithValue("@anno", anno);
+
+            Connessione conn = new Connessione();
+            DataTable dt = conn.EseguiSPSelect(cmd);
+
+            return decimal.Parse(dt.Rows[0]["Spese"].ToString());
+        }
+
+        /// <summary>
+        /// Determina il totale del fatturato per un determinato anno
+        /// </summary>
+        /// <returns>Il totale del fatturato come decimale</returns>
+        public decimal FatturatoPerAnno()
+        {
+            decimal fatturatoAnnuo = 0;
+            for (int i = 1; i < 13; i++) { fatturatoAnnuo += FatturatoPerMese(i); }
+
+            return fatturatoAnnuo;
+        }
+
+        /// <summary>
+        /// Determina il otale dei ricavi per un determinato anno
+        /// </summary>
+        /// <returns>I ricavi come decimale</returns>
+        public decimal RicaviPerAnno() { return FatturatoPerAnno() - SpesePerAnno(); }
+
+        /// <summary>
+        /// Determina il totale del fatturato per un determinato mese di un determinato anno
+        /// </summary>
+        /// <param name="mese">Il numero del mese da considerare</param>
+        /// <returns>Il totale del fatturato come decimale</returns>
+        public decimal FatturatoPerMese(int mese)
+        {
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = "tabContratti_MonthlySumByYear";
+            cmd.Parameters.AddWithValue("@anno", anno);
+            cmd.Parameters.AddWithValue("@mese", mese);
+
+            Connessione conn = new Connessione();
+            DataTable dt = conn.EseguiSPSelect(cmd);
+
+            return decimal.Parse(dt.Rows[0]["Fatturato"].ToString());
+        }
+    }
 }

@@ -22,7 +22,7 @@ public partial class Default2 : System.Web.UI.Page
     protected void btnCalcola_Click(object sender, EventArgs e)
     {
         int anno = int.Parse(ddlAnno.SelectedValue);
-        Contabilita c = new Contabilita(anno);
+        Contratti.Contabilita c = new Contratti.Contabilita(anno);
         DateTimeFormatInfo dtf = CultureInfo.CurrentCulture.DateTimeFormat;
 
         lblSpese.Text = "€ " + c.SpesePerAnno();

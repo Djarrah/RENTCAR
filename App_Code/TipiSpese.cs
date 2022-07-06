@@ -11,7 +11,12 @@ using System.Web;
 public class TipiSpese
 {
     public int codiceTipoSpesa;
-    public string descrizione;
+    string descrizione;
+    public string Descrizione
+    {
+        get { return descrizione; }
+        set {  if (value.Length > 50) { descrizione = value.Substring(0, 50); } else { descrizione = value; } }
+    }
 
     #region COSTRUTTORI
     public TipiSpese() { }
