@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data;
-using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -14,16 +12,22 @@ public partial class Default2 : System.Web.UI.Page
         CaricaGriglia();
     }
 
-    protected void CaricaGriglia()
+    protected void griglia_SelectedIndexChanged(object sender, EventArgs e)
     {
-        TipiSpese t = new TipiSpese();
-
-        griglia.DataSource = t.SelectAll();
-        griglia.DataBind();
+        Session["cod"] = griglia.SelectedDataKey[0];
+        btnModifica.Enabled = true;
     }
 
     protected void btnCaricaGriglia_Click(object sender, EventArgs e)
     {
         CaricaGriglia();
+    }
+
+    protected void CaricaGriglia()
+    {
+        Clienti c = new Clienti();
+
+        griglia.DataSource = c.SelectAll();
+        griglia.DataBind();
     }
 }

@@ -14,14 +14,19 @@ public class Auto
     int codiceModello;
     string targa;
     string dataAcquisto;
-    string costo;
-    string prezzo;
+    decimal costo;
+    decimal prezzo;
 
     #region COSTRUTTORI
 
     public Auto() { }
 
-    public Auto(int codiceModello, string targa, string dataAcquisto, string costo, string prezzo)
+    public Auto(int codiceAuto)
+    {
+        this.codiceAuto = codiceAuto;
+    }
+
+    public Auto(int codiceModello, string targa, string dataAcquisto, decimal costo, decimal prezzo)
     {
         this.codiceModello = codiceModello;
         this.targa = targa;
@@ -30,7 +35,7 @@ public class Auto
         this.prezzo = prezzo;
     }
 
-    public Auto(int codiceAuto, int codiceModello, string targa, string dataAcquisto, string costo, string prezzo)
+    public Auto(int codiceAuto, int codiceModello, string targa, string dataAcquisto, decimal costo, decimal prezzo)
     {
         this.codiceAuto = codiceAuto;
         this.codiceModello = codiceModello;
@@ -53,6 +58,20 @@ public class Auto
         Connessione c = new Connessione();
 
         return c.EseguiSP("tabAuto_SelectAll");
+    }
+
+    /// <summary>
+    /// Seleziona un record col codice specificato
+    /// </summary>
+    /// <returns>Una tabella dati contenente il record selezionato</returns>
+    public DataTable SelectOne()
+    {
+        SqlCommand cmd = new SqlCommand();
+        cmd.CommandText = "tabAuto_SelectOne";
+        cmd.Parameters.AddWithValue("codiceAuto", codiceAuto);
+
+        Connessione c = new Connessione();
+        return c.EseguiSPSelect(cmd);
     }
 
     /// <summary>

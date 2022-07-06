@@ -18,6 +18,11 @@ public class Modelli
 
     public Modelli() { }
 
+    public Modelli(int codiceModello)
+    {
+        this.codiceModello = codiceModello;
+    }
+
     public Modelli(int codiceMarca, string descrizione)
     {
         this.codiceMarca = codiceMarca;
@@ -44,11 +49,44 @@ public class Modelli
         return c.EseguiSP("tabModelli_SelectAll");
     }
 
+    /// <summary>
+    /// Seleziona un record col codice specificato
+    /// </summary>
+    /// <returns>Una tabella dati contenente il record selezionato</returns>
+    public DataTable SelectOne()
+    {
+        SqlCommand cmd = new SqlCommand();
+        cmd.CommandText = "tabModelli_SelectOne";
+        cmd.Parameters.AddWithValue("codiceModello", codiceModello);
+
+        Connessione c = new Connessione();
+        return c.EseguiSPSelect(cmd);
+    }
+
+    /// <summary>
+    /// Seleziona la coppia Marca-Modello per l'inserimento in una ddl
+    /// </summary>
+    /// <returns>Una tabella dato formattata [Marca] [Modello]</returns>
     public DataTable SelectForDDL()
     {
         Connessione c = new Connessione();
 
         return c.EseguiSP("tabModelli_SelectForDDL");
+    }
+
+    /// <summary>
+    /// Seleziona i modelli di una determinata marca
+    /// </summary>
+    /// <param name="codiceMarca">Il codice della marca da selezionare come filtro</param>
+    /// <returns>Una tabella dati contenente i modelli selezionati</returns>
+    public DataTable SelectMarca(int codiceMarca)
+    {
+        SqlCommand cmd = new SqlCommand();
+        cmd.CommandText = "tabModelli_SelectMarca";
+        cmd.Parameters.AddWithValue("codiceMarca", codiceMarca);
+
+        Connessione c = new Connessione();
+        return c.EseguiSPSelect(cmd);
     }
 
     /// <summary>

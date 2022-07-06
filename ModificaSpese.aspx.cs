@@ -51,7 +51,7 @@ public partial class Default2 : System.Web.UI.Page
         }
 
         // Mi assicuro che i dati in ogni campo siano validi
-        if (!decimal.TryParse(txtImporto.Text, out decimal res))
+        if (!decimal.TryParse(txtImporto.Text.Replace('.', ','), out decimal importo))
         {
             ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "ATTENZIONE", "alert('Dati non validi')", true);
             return;
@@ -60,7 +60,6 @@ public partial class Default2 : System.Web.UI.Page
         // Dichiarazione variabili
         int codiceSpesa = (int)griglia.SelectedDataKey[0];
         int codiceTipoSpesa = int.Parse(ddlTipoSpesa.SelectedValue);
-        string importo = txtImporto.Text.Trim().Replace(",", ".");
         string dataSpesa = txtData.Text;
 
         // Configuro i parametri della connessione

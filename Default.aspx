@@ -21,7 +21,6 @@
     </div>
     <!-- Header End -->
 
-
     <!-- About Start -->
     <div class="container-fluid py-5">
         <div class="container">
@@ -64,7 +63,6 @@
         </div>
     </div>
     <!-- About End -->
-
 
     <!--  Quote Request Start -->
     <div class="container-fluid bg-secondary my-5">
@@ -117,7 +115,6 @@
     </div>
     <!-- Quote Request Start -->
 
-
     <!-- Services Start -->
     <div class="container-fluid pt-5">
         <div class="container">
@@ -163,7 +160,6 @@
     </div>
     <!-- Services End -->
 
-
     <!-- Features Start -->
     <div class="container-fluid bg-secondary my-5">
         <div class="container">
@@ -186,7 +182,6 @@
         </div>
     </div>
     <!-- Features End -->
-
 
     <!-- Pricing Plan Start -->
     <div class="container-fluid pt-5">
@@ -257,7 +252,6 @@
         </div>
     </div>
     <!-- Pricing Plan End -->
-
 
     <!-- Team Start -->
     <div class="container-fluid pt-5">
@@ -340,7 +334,6 @@
     </div>
     <!-- Team End -->
 
-
     <!-- Testimonial Start -->
     <div class="container-fluid py-5">
         <div class="container">
@@ -397,7 +390,6 @@
         </div>
     </div>
     <!-- Testimonial End -->
-
 
     <!-- Blog Start -->
     <div class="container-fluid pt-5">
@@ -462,4 +454,3 @@
     </div>
     <!-- Blog End -->
 </asp:Content>
-
