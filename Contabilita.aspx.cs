@@ -27,19 +27,30 @@ public partial class Default2 : System.Web.UI.Page
 
         lblSpese.Text = "€ " + c.SpesePerAnno();
         lblFatturato.Text = "€ " + c.FatturatoPerAnno();
-        lblRicavi.Text= "€ " + c.RicaviPerAnno();
+        lblRicavi.Text = "€ " + c.RicaviPerAnno();
 
-        string tabellaMesi = "";
-        for (int i = 1; i < 13; i++)
+        try
         {
-            string nomeMese = dtf.GetMonthName(i);
-            nomeMese = char.ToUpper(nomeMese[0]) + nomeMese.Substring(1);
-
-            decimal fatturatoMese = c.FatturatoPerMese(i);
-
-            tabellaMesi += $"<tr><td>{nomeMese}</td><td>{fatturatoMese}</td></tr>";
+            griglia.DataSource = c.TabellaFatturato();
+            griglia.DataBind();
+        }
+        catch (Exception ex)
+        {
+            ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "ERRORE", $"alert('{ex.Message}')", true);
         }
 
-        litTabellaMesi.Text = tabellaMesi;
+
+        //string tabellaMesi = "";
+        //for (int i = 1; i < 13; i++)
+        //{
+        //    string nomeMese = dtf.GetMonthName(i);
+        //    nomeMese = char.ToUpper(nomeMese[0]) + nomeMese.Substring(1);
+
+        //    decimal fatturatoMese = c.FatturatoPerMese(i);
+
+        //    tabellaMesi += $"<tr><td>{nomeMese}</td><td>{fatturatoMese}</td></tr>";
+        //}
+
+        //litTabellaMesi.Text = tabellaMesi;
     }
 }

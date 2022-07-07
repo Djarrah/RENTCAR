@@ -202,5 +202,15 @@ public class Contratti
 
             return decimal.Parse(dt.Rows[0]["Fatturato"].ToString());
         }
+
+        public DataTable TabellaFatturato()
+        {
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = "tabContratti_SelectMonthlySum";
+            cmd.Parameters.AddWithValue("@anno", anno);
+
+            Connessione conn = new Connessione();
+            return conn.EseguiSPSelect(cmd);
+        }
     }
 }

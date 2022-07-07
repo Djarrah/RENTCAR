@@ -37,13 +37,17 @@
                 </tr>
             </table>
 
-            <table class="table table-striped table-borderless bg-white">
+            <asp:GridView ID="griglia" runat="server" CssClass="table table-striped table-borderless bg-white">
+                <HeaderStyle CssClass="bg-dark text-white" />
+            </asp:GridView>
+
+            <%--<table class="table table-striped table-borderless bg-white">
                 <tr class="bg-dark text-white">
                     <th>Mese</th>
                     <th>Fatturato</th>
                 </tr>
                 <asp:Literal ID="litTabellaMesi" runat="server"></asp:Literal>
-            </table>
+            </table>--%>
         </div>
     </div>
 </asp:Content>
